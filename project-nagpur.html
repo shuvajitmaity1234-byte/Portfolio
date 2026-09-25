@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nagpur Metro Project | Shuvajit Maity</title>
+<!-- Premium Font Import -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<!-- Engineering Icons (FontAwesome) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+:root {
+  --bg: #030712; 
+  --surface: rgba(17, 24, 39, 0.6); 
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f8fafc; 
+  --muted: #94a3b8;
+  --primary: #4dd4ff; 
+  --secondary: #818cf8;
+  --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { 
+  font-family: 'Outfit', sans-serif; 
+  background-color: var(--bg); 
+  color: var(--text); 
+  line-height: 1.7;
+  /* Same background as main page */
+  background-image: linear-gradient(rgba(0, 1, 5, 0.48), rgba(0, 3, 11, 0.95)), url('back1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+a { color: inherit; text-decoration: none; transition: all 0.3s ease; }
+.container { width: min(800px, 90%); margin: auto; padding: 100px 0; }
+
+.icon-gradient {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.project-detail-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 32px;
+  padding: 60px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+}
+
+.kicker { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; font-size: 13px; margin-bottom: 15px; display: inline-block; }
+h1 { font-size: 42px; font-weight: 900; margin-bottom: 24px; line-height: 1.1; }
+p { color: #cbd5e1; font-size: 18px; margin-bottom: 20px; font-weight: 300; }
+ul { padding-left: 20px; color: #cbd5e1; font-size: 16px; margin-bottom: 40px; }
+u2 { padding-left: 20px; color: #cbd5e1; font-size: 16px; margin-bottom: 40px; }
+li { margin-bottom: 12px; }
+
+/* The Home Button */
+.btn { 
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 14px 28px; border-radius: 12px; font-weight: 600; font-size: 15px; 
+  background: var(--gradient); color: #000; border: none; 
+  box-shadow: 0 10px 20px rgba(77, 212, 255, 0.2); 
+  cursor: pointer;
+}
+.btn:hover { box-shadow: 0 15px 30px rgba(77, 212, 255, 0.4); transform: translateY(-3px); }
+
+/* Project Image Styling */
+.project-image {
+  width: 100%;
+  border-radius: 16px;
+  margin: 25px 0;
+  display: block;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  border: 1px solid var(--border);
+}
+
+@media(max-width: 600px){
+  .project-detail-card { padding: 30px; }
+  h1 { font-size: 32px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="project-detail-card">
+    <div class="kicker"><i class="fa-solid fa-helmet-safety icon-gradient" style="margin-right: 8px;"></i> Metro Project</div>
+    
+    <h1>Nagpur Metro System Integration</h1>
+    <h2>Role: Commissioning Engineer & Project Coordinator Project:-</h2>
+    <p> Nagpur Metro 6.7 MVAR SVG Network Compensation Project Scope & Leadership: Directed site operations, aligned cross-functional teams, and spearheaded the end-to-end commissioning of a 6.7 MVAR (9.5 kA) Static VAR Generator (SVG) system to deliver dynamic reactive power compensation for traction load networks.</p>
+    
+    <!-- Inserted Image -->
+    <img src="nagpur.jpg" alt="Nagpur Metro Project Commissioning" class="project-image">
+    
+    <h3 style="margin: 30px 0 15px; font-size: 22px;">Technical Execution & Field Engineering:-</h3>
+    <ul>
+      <li>Site Coordination: Managed project milestones and execution schedules across multiple 132 kV Receiving Substations (RSS) and 33 kV Traction Substations (TSS), ensuring seamless master/slave network coordination</li>
+      <li>Signal Integration, Communication & System Diagnostics: Executed the direct integration of Current Transformer (CT) and Potential Transformer (PT) feedback systems into the SVG compensation panels across all 132 kV RSS, 33 kV TSS, and ASS locations. Successfully diagnosed and resolved complex signal discrepancies, guaranteeing high-fidelity telemetry and precision network load monitoring.</li>
+      <li>SCADA & Telemetry: Integrated network compensation controls through RTU/SCADA communication interfaces utilizing the IEC 104 protocol. Troubleshot and rectified interface bottlenecks to guarantee uninterrupted data flow to the central control station.</li>
+      <!-- <li>successfully integration network compensation throuth RTU/ scada communication Interface with help of 104 protocal </li> -->
+      <!-- <li>Troubleshot and repaired RTU/SCADA communication interface issues to ensure seamless data flow to central control.</li> -->
+    </ul>
+        <h3 style="margin: 30px 0 15px; font-size: 22px;">Key Achievements & Impact:-</h3>
+    <u2>
+      <li>Power Factor Optimization: Successfully elevated and stabilized the overarching network Power Factor (PF) from a baseline of < 0.96 to a sustained 0.98–0.998 under dynamic operational phases.</li>
+      <li>Operational Reliability: Delivered a fully synchronized and fault-tolerant compensation network, finalizing project handover with verifiable improvements to power quality across the metropolitan traction grid.</1i>
+      <li>Centralized network mode compensation Integration: Achieved seamless telemetry synchronization with the central control room by configuring and troubleshooting the IEC 104 protocol, establishing a robust foundation for remote monitoring and real-time reactive power management.</li>
+      <!-- <li>Maintained critical Power Factor (PF) performance around 0.98–0.998 during all phases of commissioning.</li> -->
+      <!-- <li>Successfully worked through and resolved PT feedback irregularities.</li> -->
+      <!-- <li>Troubleshot and repaired RTU/SCADA communication interface issues to ensure seamless data flow to central control.</li> -->
+    </u2>
+
+    <!-- This button returns the user to the main index page -->
+    <a href="index.html#projects" class="btn"><i class="fa-solid fa-house" style="margin-right: 8px;"></i> back</a>
+  </div>
+</div>
+
+</body>
+</html>

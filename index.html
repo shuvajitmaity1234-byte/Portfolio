@@ -5,64 +5,201 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shuvajit Maity | Power Quality & Electrical Engineering</title>
 <meta name="description" content="Professional portfolio of Shuvajit Maity — Central India Regional Head, Power Quality & Electrical Engineering.">
+<!-- Premium Font Import -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<!-- Engineering Icons (FontAwesome) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 <style>
-:root{
-  --bg:#07111f; --panel:#0d1a2b; --panel2:#102239; --text:#eef5ff; --muted:#a9bad0;
-  --line:#233852; --accent:#4dd4ff; --accent2:#8b7cff; --white:#fff;
+:root {
+  --bg: #030712; 
+  --surface: rgba(17, 24, 39, 0.6); 
+  --surface-hover: rgba(31, 41, 55, 0.8);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(77, 212, 255, 0.4);
+  --text: #f8fafc; 
+  --muted: #94a3b8;
+  --primary: #4dd4ff; 
+  --secondary: #818cf8;
+  --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
-a{color:inherit;text-decoration:none}
-.container{width:min(1120px,92%);margin:auto}
-nav{position:fixed;top:0;left:0;right:0;z-index:10;background:rgba(7,17,31,.86);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.07)}
-.navin{height:70px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-weight:800;letter-spacing:.4px}.logo span{color:var(--accent)}
-.navlinks{display:flex;gap:25px;color:var(--muted);font-size:14px}
-.navlinks a:hover{color:var(--white)}
-.hero{min-height:100vh;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:50px;padding-top:90px;position:relative;overflow:hidden}
-.hero:before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;right:-180px;top:80px;background:radial-gradient(circle,rgba(77,212,255,.14),transparent 65%)}
-.kicker{color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:2px;font-size:13px}
-h1{font-size:clamp(42px,6vw,76px);line-height:1.02;margin:16px 0}
-h1 span{display:block;color:var(--accent)}
-.hero p{color:var(--muted);font-size:18px;max-width:680px}
-.buttons{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
-.btn{padding:12px 19px;border-radius:9px;border:1px solid var(--line);font-weight:700;font-size:14px}
-.btn.primary{background:var(--accent);color:#04101b;border-color:var(--accent)}
-.btn:hover{transform:translateY(-2px)}
-.photo-wrap{display:flex;justify-content:center}
-.photo-card{width:min(390px,100%);padding:12px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(145deg,var(--panel2),var(--panel));box-shadow:0 30px 70px rgba(0,0,0,.35)}
-.photo-card img{width:100%;display:block;border-radius:17px}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:10px 0 80px}
-.stat{background:var(--panel);border:1px solid var(--line);padding:20px;border-radius:14px}
-.stat b{font-size:25px;color:var(--accent);display:block}.stat small{color:var(--muted)}
-section{padding:90px 0}
-.section-title{font-size:36px;margin-bottom:12px}.section-sub{color:var(--muted);max-width:720px;margin-bottom:35px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px}
-.card h3{margin-bottom:8px}.card p{color:var(--muted);font-size:14px}
-.tag{display:inline-block;padding:6px 9px;margin:5px 5px 0 0;border:1px solid var(--line);border-radius:99px;color:#c9d8ea;font-size:12px}
-.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-.project{background:linear-gradient(145deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:18px;padding:27px}
-.project .num{color:var(--accent);font-weight:800;font-size:13px}.project h3{font-size:23px;margin:7px 0}
-.project p,.project li{color:var(--muted);font-size:14px}.project ul{padding-left:18px;margin-top:10px}
-.timeline{border-left:1px solid var(--line);padding-left:28px}
-.time{position:relative;margin-bottom:30px}.time:before{content:"";position:absolute;left:-34px;top:8px;width:9px;height:9px;border-radius:50%;background:var(--accent)}
-.time b{color:var(--accent);font-size:13px}.time h3{margin:4px 0}.time p{color:var(--muted)}
-.contact{background:linear-gradient(145deg,#0e2035,#0a1626);border:1px solid var(--line);border-radius:22px;padding:45px}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}
-.contact p{color:var(--muted)}.contact a{color:var(--accent)}
-footer{padding:35px 0;color:#73869d;border-top:1px solid var(--line);font-size:13px}
-@media(max-width:800px){
- .hero{grid-template-columns:1fr;padding-top:115px}.photo-wrap{order:-1}
- .stats{grid-template-columns:repeat(2,1fr)}.grid,.projects,.contact-grid{grid-template-columns:1fr}
- .navlinks{display:none}section{padding:65px 0}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { 
+  font-family: 'Outfit', sans-serif; 
+  background-color: var(--bg); 
+  color: var(--text); 
+  line-height: 1.7;
+  overflow-x: hidden;
+  
+  /* Advanced Electrical Engineering Photo Background with Dark Overlay */
+  background-image: 
+    linear-gradient(rgba(0, 1, 5, 0.48), rgba(0, 3, 11, 0.95)),
+    url('back1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+a { color: inherit; text-decoration: none; transition: all 0.3s ease; }
+.container { width: min(1120px, 90%); margin: auto; }
+
+/* Gradient Icon Utility Class */
+.icon-gradient {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Advanced Glassmorphism Navbar */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(3, 7, 18, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.navin { height: 75px; display: flex; align-items: center; justify-content: space-between; }
+.logo { font-weight: 900; font-size: 20px; letter-spacing: 0.5px; }
+.logo span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.navlinks { display: flex; gap: 32px; color: var(--muted); font-size: 15px; font-weight: 500; }
+.navlinks a:hover { color: var(--text); transform: translateY(-2px); }
+
+/* Hero Section */
+.hero { min-height: 100vh; display: grid; grid-template-columns: 1.2fr 0.8fr; align-items: center; gap: 60px; padding-top: 100px; position: relative; }
+.hero::after { content: ""; position: absolute; width: 600px; height: 600px; border-radius: 50%; right: -200px; top: 10%; background: radial-gradient(circle, rgba(77,212,255,0.1), transparent 60%); z-index: -1; filter: blur(50px); }
+.kicker { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; font-size: 13px; margin-bottom: 15px; display: inline-block; }
+h1 { font-size: clamp(48px, 7vw, 84px); font-weight: 900; line-height: 1.05; margin: 0 0 24px; letter-spacing: -1px; }
+h1 span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero p { color: var(--muted); font-size: 19px; max-width: 600px; font-weight: 300; }
+.buttons { display: flex; gap: 16px; margin-top: 36px; }
+
+/* Premium Buttons */
+.btn { padding: 14px 28px; border-radius: 12px; font-weight: 600; font-size: 15px; border: 1px solid var(--border); backdrop-filter: blur(10px); transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); cursor: pointer; }
+.btn.primary { background: var(--gradient); color: #000; border: none; box-shadow: 0 10px 20px rgba(77, 212, 255, 0.2); }
+.btn.primary:hover { box-shadow: 0 15px 30px rgba(77, 212, 255, 0.4); transform: translateY(-3px); }
+.btn:not(.primary):hover { border-color: var(--primary); background: rgba(77, 212, 255, 0.05); transform: translateY(-3px); color: var(--primary); }
+
+/* Image Card Glow Effect */
+.photo-wrap { position: relative; perspective: 1000px; }
+.photo-card { width: 100%; max-width: 420px; padding: 12px; border: 1px solid var(--border); border-radius: 32px; background: var(--surface); backdrop-filter: blur(20px); transform: rotateY(-5deg) rotateX(5deg); transition: transform 0.6s ease; box-shadow: 0 30px 60px rgba(0,0,0,0.6); }
+.photo-wrap:hover .photo-card { transform: rotateY(0) rotateX(0); }
+.photo-card img { width: 100%; display: block; border-radius: 20px; }
+
+/* Section & Stats Styling */
+section { padding: 120px 0; position: relative; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin: -40px auto 80px; position: relative; z-index: 5; }
+.stat { background: var(--surface); backdrop-filter: blur(16px); border: 1px solid var(--border); padding: 32px 24px; border-radius: 24px; text-align: center; transition: all 0.4s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+.stat:hover { transform: translateY(-8px); border-color: var(--border-hover); background: var(--surface-hover); }
+.stat i { font-size: 32px; margin-bottom: 12px; }
+.stat b { font-size: clamp(24px, 3.5vw, 36px); line-height: 1.2; font-weight: 900; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: block; margin-bottom: 5px; word-wrap: break-word; }
+.stat small { color: var(--muted); font-weight: 500; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
+
+/* Global Section Typography */
+.section-title { font-size: 42px; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.5px; }
+.section-title i { margin-right: 14px; font-size: 0.8em; }
+.section-sub { color: var(--muted); max-width: 680px; margin-bottom: 48px; font-size: 18px; font-weight: 300; }
+
+/* Glass Cards (About / Features) */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 24px; padding: 36px; backdrop-filter: blur(16px); transition: all 0.4s ease; }
+.card:hover { transform: translateY(-6px); border-color: var(--border-hover); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+.card h3 { font-size: 22px; font-weight: 700; margin-bottom: 12px; color: var(--text); }
+.card p { color: var(--muted); font-weight: 300; }
+
+/* Expertise Tags */
+.tag { display: inline-block; padding: 8px 16px; margin: 6px 6px 0 0; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 100px; color: #e2e8f0; font-size: 13px; font-weight: 500; transition: all 0.3s ease; }
+.tag:hover { background: var(--gradient); border-color: transparent; color: #000; transform: scale(1.05); }
+
+/* Advanced Project Cards */
+.projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 24px; }
+.project {
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  padding: 40px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.project::before {
+  content: ""; position: absolute; inset: 0; background: inherit; z-index: -1;
+  transition: transform 0.7s ease;
+}
+.project:hover::before { transform: scale(1.08); }
+.project:hover { transform: translateY(-8px); border-color: var(--border-hover); box-shadow: 0 30px 60px rgba(0,0,0,0.6); }
+.project .num { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; font-size: 13px; letter-spacing: 2px; margin-bottom: 10px; display: inline-block; }
+.project h3 { font-size: 28px; font-weight: 800; margin-bottom: 12px; }
+.project p { color: #6eadf9; font-weight: 300; margin-bottom: 16px; }
+.project ul { padding-left: 20px; color: #cbd5e1; font-size: 15px; font-weight: 400; margin-bottom: 20px; }
+.project li { margin-bottom: 6px; }
+
+/* Read More Button CSS */
+.read-more-btn {
+  display: inline-block;
+  padding: 8px 18px;
+  border: 1px solid rgba(77, 212, 255, 0.4);
+  border-radius: 8px;
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+  backdrop-filter: blur(5px);
+  background: rgba(3, 7, 18, 0.4);
+}
+.read-more-btn:hover {
+  background: var(--primary);
+  color: #000;
+  border-color: var(--primary);
+  transform: translateX(4px);
+}
+
+/* Timeline Journey */
+.timeline { border-left: 2px solid var(--border); padding-left: 40px; margin-left: 10px; }
+.time { position: relative; margin-bottom: 48px; }
+.time::before { content: ""; position: absolute; left: -47px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 15px var(--primary); }
+.time b { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700; font-size: 15px; letter-spacing: 1px; }
+.time h3 { font-size: 22px; font-weight: 700; margin: 8px 0; }
+.time p { color: var(--muted); font-weight: 300; }
+
+/* Contact Section */
+.contact { background: var(--surface); border: 1px solid var(--border); border-radius: 32px; padding: 60px; backdrop-filter: blur(20px); position: relative; overflow: hidden; }
+.contact::before { content: ""; position: absolute; width: 300px; height: 300px; background: var(--primary); filter: blur(150px); opacity: 0.1; top: -150px; left: -150px; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; position: relative; z-index: 2; }
+.contact p { color: #f8fafc; font-size: 17px; font-weight: 300; margin-bottom: 5px; }
+.contact i { width: 24px; color: var(--primary); margin-right: 8px; font-size: 20px; }
+.contact a { color: var(--primary); font-weight: 700; font-size: 22px; transition: all 0.3s ease; display: inline-block; cursor: pointer; }
+.contact a:hover { color: #ffffff; transform: translateX(8px); }
+
+footer { padding: 40px 0; text-align: center; color: var(--muted); border-top: 1px solid var(--border); font-size: 14px; font-weight: 300; }
+
+@media(max-width: 900px){
+  .hero { grid-template-columns: 1fr; text-align: center; padding-top: 130px; }
+  .hero p { margin: 0 auto; }
+  .buttons { justify-content: center; }
+  .photo-wrap { order: -1; }
+  .photo-card { transform: none; margin: 0 auto; }
+  .projects { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .navlinks { display: none; }
 }
 </style>
 </head>
 <body>
 <nav><div class="container navin">
-  <a class="logo" href="#home">SHUVAJIT<span>.</span></a>
+  <a class="logo" href="#home">Mr. SHUVAJIT Maity<span>.</span></a>
   <div class="navlinks">
     <a href="#about">About</a><a href="#expertise">Expertise</a><a href="#projects">Projects</a>
     <a href="#journey">Journey</a><a href="#contact">Contact</a>
@@ -72,11 +209,11 @@ footer{padding:35px 0;color:#73869d;border-top:1px solid var(--line);font-size:1
 <main id="home">
 <section class="hero container">
   <div>
-    <div class="kicker">Power Quality • Electrical Systems • Regional Leadership</div>
+    <div class="kicker"><i class="fa-solid fa-bolt icon-gradient" style="margin-right: 8px;"></i> Power Quality • Electrical Systems</div>
     <h1>Shuvajit<br><span>Maity</span></h1>
-    <p><strong>Central India Regional Head</strong> with hands-on experience in power quality, harmonic mitigation, reactive power compensation, commissioning, troubleshooting and project coordination.</p>
+    <p><strong>Central India Regional Head</strong> specializing in power quality, harmonic mitigation, and dynamic reactive power compensation. Proven expertise in end-to-end commissioning, system troubleshooting, and cross-functional project coordination.</p>
     <div class="buttons">
-      <a class="btn primary" href="#projects">View Projects</a>
+      <a class="btn primary" href="#projects">View Projects <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i></a>
       <a class="btn" href="#contact">Contact Me</a>
     </div>
   </div>
@@ -84,84 +221,200 @@ footer{padding:35px 0;color:#73869d;border-top:1px solid var(--line);font-size:1
 </section>
 
 <div class="container stats">
-  <div class="stat"><b>4+</b><small>Years in Power Electrical</small></div>
-  <div class="photo-wrap"><div class="photo-card"><img src="profile.jpg" alt="Shuvajit Maity professional portrait"></div></div>
-  <div class="stat"><b>AHF/SVG</b><small>Core Product Expertise</small></div>
-  <div class="stat"><b>Metro</b><small>Major Commissioning Exposure</small></div>
-  <div class="stat"><b>Central India</b><small>Regional Responsibility</small></div>
+  <div class="stat"><i class="fa-solid fa-bolt icon-gradient"></i><b>4+</b><large>Years in Electrical Power Systems</large></div>
+  <div class="stat"><i class="fa-solid fa-microchip icon-gradient"></i><b>AHF / SVG / APFC</b><small>Core Product Expertise</small></div>
+  <div class="stat"><i class="fa-solid fa-industry icon-gradient"></i><b>Metro & Steel</b><small>Major Commissioning Sectors</small></div>
+  <div class="stat"><i class="fa-solid fa-network-wired icon-gradient"></i><b>Central India</b><small>Regional Leadership</small></div>
 </div>
 
 <section id="about"><div class="container">
-  <div class="kicker">Profile</div><h2 class="section-title">Engineering with field impact.</h2>
-  <p class="section-sub">I work at the intersection of electrical engineering, power quality and customer-facing project execution — from technical assessment and system analysis to commissioning, troubleshooting and regional coordination.</p>
+  <div class="kicker">Profile</div>
+  <h2 class="section-title"><i class="fa-solid fa-user-tie icon-gradient"></i> Engineering driven by field impact.</h2>
+  <p class="section-sub">I operate at the intersection of electrical engineering and customer-facing project execution. My expertise spans technical system analysis and power quality assessment to on-site commissioning and regional team coordination.</p>
   <div class="grid">
-    <div class="card"><h3>Technical</h3><p>Power quality studies, harmonic analysis, reactive power compensation, CT/PT measurement, electrical drawings and system troubleshooting.</p></div>
-    <div class="card"><h3>Execution</h3><p>Commissioning and site coordination for AHF/APF, SVG and dynamic reactive power compensation systems across demanding industrial and infrastructure applications.</p></div>
-    <div class="card"><h3>Leadership</h3><p>Central-region engineer deployment, customer support, project follow-up, service coordination, MIS/RDN planning and technical team guidance.</p></div>
+    <div class="card">
+      <h3><i class="fa-solid fa-laptop-code" style="color: var(--primary); margin-right: 10px;"></i> Technical</h3>
+      <p>Power quality studies, harmonic analysis, reactive power compensation, CT/PT measurement, electrical drawings and system troubleshooting.</p>
+    </div>
+    <div class="card">
+      <h3><i class="fa-solid fa-gears" style="color: var(--primary); margin-right: 10px;"></i> Execution</h3>
+      <p>Commissioning and site coordination for AHF/APF, SVG and dynamic reactive power compensation systems across demanding industrial and infrastructure applications.</p>
+    </div>
+    <div class="card">
+      <h3><i class="fa-solid fa-people-group" style="color: var(--primary); margin-right: 10px;"></i> Leadership</h3>
+      <p>Central-region engineer deployment, customer support, project follow-up, service coordination, MIS/RDN planning and technical team guidance.</p>
+    </div>
   </div>
 </div></section>
 
 <section id="expertise"><div class="container">
-  <div class="kicker">Core expertise</div><h2 class="section-title">What I specialize in</h2>
-  <p class="section-sub">A practical combination of analysis, electrical-system knowledge and field execution.</p>
+<div class="kicker">Core Expertise</div>
+  <h2 class="section-title"><i class="fa-solid fa-plug-circle-bolt icon-gradient"></i> Areas of Specialization</h2>
+  <p class="section-sub">A robust blend of analytical engineering, electrical system design, and hands-on field execution.</p>
   <div class="card">
-    <span class="tag">Power Quality Analysis</span><span class="tag">Harmonic Analysis</span><span class="tag">Reactive Power Compensation</span>
+    <span class="tag"><i class="fa-solid fa-wave-square" style="margin-right: 5px;"></i> Power Quality Analysis</span>
+    <span class="tag"><i class="fa-solid fa-chart-line" style="margin-right: 5px;"></i> Harmonic Analysis</span>
+    <span class="tag"><i class="fa-solid fa-bolt" style="margin-right: 5px;"></i> Reactive Power Compensation</span>
     <span class="tag">AHF / APF</span><span class="tag">SVG</span><span class="tag">Capacitor Banks</span>
     <span class="tag">CT / PT Selection</span><span class="tag">Electrical SLDs</span><span class="tag">Panel Schematics</span>
-    <span class="tag">Commissioning</span><span class="tag">Troubleshooting</span><span class="tag">Root Cause Analysis</span>
+    <span class="tag"> Commissioning</span>
+    <span class="tag"><i class="fa-solid fa-wrench" style="margin-right: 5px;"></i> Troubleshooting</span>
+    <span class="tag">Root Cause Analysis</span>
     <span class="tag">Customer Technical Support</span><span class="tag">Project Coordination</span><span class="tag">Team Deployment</span>
   </div>
 </div></section>
 
 <section id="projects"><div class="container">
-  <div class="kicker">Selected work</div><h2 class="section-title">Major project experience</h2>
+  <div class="kicker">Selected work</div>
+  <h2 class="section-title"><i class="fa-solid fa-helmet-safety icon-gradient"></i> Major project experience</h2>
   <p class="section-sub">Selected examples demonstrating commissioning depth, system integration and customer-facing problem solving.</p>
   <div class="projects">
-    <article class="project"><div class="num">01 / METRO</div><h3>Nagpur Metro</h3><p>Dynamic reactive power compensation commissioning and system integration.</p><ul><li>150 kVAr × 27, 225 kVAr × 2 and 450 kVAr × 5 systems</li><li>Master/slave and network coordination across RSS/TSS locations</li><li>PF performance around 0.98–0.998 during commissioning</li><li>Worked through PT feedback, RTU/SCADA and communication issues</li></ul></article>
-    <article class="project"><div class="num">02 / METRO</div><h3>Pune Metro</h3><p>Major technical and commissioning support for power-quality equipment in metro infrastructure.</p><ul><li>Site commissioning and troubleshooting exposure</li><li>Controller/network coordination and technical support</li></ul></article>
-    <article class="project"><div class="num">03 / STEEL</div><h3>JSW Nashik</h3><p>Industrial power-quality and reactive compensation project exposure.</p><ul><li>6 × 500 kVAr Astra systems at 690 V</li><li>Commissioning coordination and customer technical support</li></ul></article>
-    <article class="project"><div class="num">04 / STEEL</div><h3>Icon Steel / Rathi Steel</h3><p>Large industrial compensation system project coordination.</p><ul><li>6 × 630 A, 415 V Astra panels</li><li>2 × 3000 A ACB and summation CT arrangement</li><li>Site readiness and transformer-related coordination</li></ul></article>
-    <article class="project"><div class="num">04 / STEEL</div><h3>Icon Steel / Rathi Steel</h3><p>Large industrial compensation system project coordination.</p><ul><li>6 × 630 A, 415 V Astra panels</li><li>2 × 3000 A ACB and summation CT arrangement</li><li>Site readiness and transformer-related coordination</li></ul></article>
+    
+    <article class="project" style="background-image: linear-gradient(to top, rgba(3, 7, 18, 0.95) 0%, rgba(3, 7, 18, 0.2) 100%), url('nagpurm.jpg');">
+      <div>
+        <div class="num">01 / METRO</div><h3>Nagpur Metro</h3>
+        <p> As Project coordinator & Commissioning Engineer:- </p> 
+        <ul>
+          <li>Project Leadership: Led field commissioning of a 6.7 MVAR (9.5 kA) SVG system across multiple 132 kV RSS and 33 kV TSS sites for Nagpur Metro.</li>
+          <!-- <li>System Integration: Established reliable master/slave network coordination and resolved critical power quality issues under dynamic traction loads.</li> -->
+          <li>Performance: Improved and consistently maintained the overall system Power Factor within the desired operating range.</li>
+        </ul>
+        <a href="project-nagpur.html" class="read-more-btn">Read More <i class="fa-solid fa-arrow-right" style="margin-left:5px;"></i></a>
+      </div>
+    </article>
+    
+    <article class="project" style="background-image: linear-gradient(to top, rgba(3, 7, 18, 0.95) 0%, rgba(3, 7, 18, 0.2) 100%), url('punem.png');">
+      <div>
+        <div class="num">02 / METRO</div><h3>Pune Metro</h3>
+        <p>As commissioning Engineer:-</p>
+        <ul>
+          <li>Site commissioning and troubleshooting exposure</li>
+          <li>Controller/network coordination and technical support</li>
+        </ul>
+        <a href="project-pune.html" class="read-more-btn">Read More <i class="fa-solid fa-arrow-right" style="margin-left:5px;"></i></a>
+      </div>
+    </article>
+    
+    <article class="project" style="background-image: linear-gradient(to top, rgba(3, 7, 18, 0.95) 0%, rgba(3, 7, 18, 0.2) 100%), url('jsw.jpg');">
+      <div>
+        <div class="num">03 / STEEL</div><h3>JSW Nashik</h3>
+        <p>Industrial power-quality and reactive compensation project exposure.</p>
+        <ul>
+          <li>6 × 500 kVAr Astra systems at 690 V</li>
+          <li>Commissioning coordination and customer technical support</li>
+        </ul>
+        <a href="project-jsw.html" class="read-more-btn">Read More <i class="fa-solid fa-arrow-right" style="margin-left:5px;"></i></a>
+      </div>
+    </article>
+    
+    <article class="project" style="background-image: linear-gradient(to top, rgba(3, 7, 18, 0.95) 0%, rgba(3, 7, 18, 0.2) 100%), url('icons.jpg');">
+      <div>
+        <div class="num">04 / STEEL</div><h3>Icon Steel / Rathi Steel</h3>
+        <p>Large industrial compensation system project coordination.</p>
+        <ul>
+          <li>6 × 630 A, 415 V Astra panels</li>
+          <li>2 × 3000 A ACB and summation CT arrangement</li>
+          <li>Site readiness and transformer-related coordination</li>
+        </ul>
+        <a href="project-icon.html" class="read-more-btn">Read More <i class="fa-solid fa-arrow-right" style="margin-left:5px;"></i></a>
+      </div>
+    </article>
+    
+    <article class="project" style="background-image: linear-gradient(to top, rgba(3, 7, 18, 0.95) 0%, rgba(3, 7, 18, 0.2) 100%), url('amnsp.jpg');">
+      <div>
+        <div class="num">04 / STEEL</div><h3>AMNS-PUNE</h3>
+        <p>Large industrial compensation system project coordination.</p>
+        <ul>
+          <li>14 × 630 A, 415 V Astra panels</li>
+          <li>2 × 3000 A ACB and summation CT arrangement</li>
+          <li>Site readiness and transformer-related coordination</li>
+        </ul>
+        <a href="project-amns.html" class="read-more-btn">Read More <i class="fa-solid fa-arrow-right" style="margin-left:5px;"></i></a>
+      </div>
+    </article>
 
-    <article class="project"><div class="num">05 / INDUSTRIAL</div><h3>Mahindra EPC</h3><p>Power-quality and reactive compensation commissioning.</p><ul><li>630 A Astra + 500 kVAr detuned capacitor bank</li><li>2000 A ACB integration</li><li>Commissioned with PF and harmonic performance verification</li></ul></article>
-    <!-- <article class="project"><div class="num">06 / METRO</div><h3>Chennai Metro</h3><p>AHF service, commissioning support and customer training exposure.</p><ul><li>Leonine 300 A, 415 V system service</li><li>Testing, troubleshooting and customer training</li></ul></article> --> -->
+    <article class="project" style="background-image: linear-gradient(to top, rgba(3, 7, 18, 0.95) 0%, rgba(3, 7, 18, 0.2) 100%), url('mahin.jpg');">
+      <div>
+        <div class="num">05 / INDUSTRIAL</div><h3>Mahindra EPC</h3>
+        <p>Power-quality and reactive compensation commissioning.</p>
+        <ul>
+          <li>630 A Astra + 500 kVAr detuned capacitor bank</li>
+          <li>2000 A ACB integration</li>
+          <li>Commissioned with PF and harmonic performance verification</li>
+        </ul>
+        <a href="project-mahindra.html" class="read-more-btn">Read More <i class="fa-solid fa-arrow-right" style="margin-left:5px;"></i></a>
+      </div>
+
+    </article>
+        <article class="project" style="background-image: linear-gradient(to top, rgba(3, 7, 18, 0.95) 0%, rgba(3, 7, 18, 0.2) 100%), url('amnsp.jpg');">
+      <div>
+        <div class="num">others Projects</div><h3>others</h3>
+        <p>Large industrial compensation system project coordination.</p>
+        <ul>
+          <li>14 × 630 A, 415 V Astra panels</li>
+          <li>2 × 3000 A ACB and summation CT arrangement</li>
+          <li>Site readiness and transformer-related coordination</li>
+        </ul>
+        <a href="project-amns.html" class="read-more-btn">Read More <i class="fa-solid fa-arrow-right" style="margin-left:5px;"></i></a>
+      </div>
+    </article>
+    
   </div>
 </div></section>
 
 <section id="journey"><div class="container">
-  <div class="kicker">Career journey</div><h2 class="section-title">From field engineering to regional leadership.</h2>
+  <div class="kicker">Career Journey</div>
+  <h2 class="section-title"><i class="fa-solid fa-code-branch icon-gradient"></i> From Field Engineer to Regional Leadership.</h2>
   <div class="timeline">
-    <div class="time"><b>2018 – 2021</b><h3>Diploma in Electrical Engineering</h3><p>Arambagh Government Polytechnic.</p></div>
-    <div class="time"><b>2022</b><h3>Joined InPhase Power Technologies</h3><p>Started in Product Support / Application Engineering, building hands-on expertise in power-quality systems.</p></div>
-    <div class="time"><b>2023 – 2025</b><h3>Application Engineering & Major Commissioning</h3><p>Expanded into AHF/SVG, reactive compensation, metro projects, industrial commissioning and customer support.</p></div>
-    <div class="time"><b>2025 – 2026</b><h3>Multi-region project & service responsibility</h3><p>Handled major project execution, commissioning, troubleshooting and engineer coordination across multiple zones.</p></div>
-    <div class="time"><b>Current</b><h3>Central India Regional Head</h3><p>Responsible for Central India regional service, commissioning, projects, customer support and team coordination.</p></div>
+    <div class="time"><b>2025 – March to Current</b><h3>Regional Head | Central India</h3><p>Directing regional service operations, project commissioning, customer relations, and strategic team coordination for the Central India territory.</p></div>
+    <div class="time"><b>2024 – Oct to 2025 – Feb</b><h3>Regional Head | South India</h3><p>Led regional project execution, commissioning operations, and engineering team deployment across South India sites.</p></div>
+    <div class="time"><b>2024 – 2025</b><h3>Application Engineer | Western India</h3><p>Managed major project execution, on-site commissioning, advanced troubleshooting, and engineer coordination across Western India.</p></div>
+    <div class="time"><b>2023 – Jan to 2024</b><h3>Jr. Application Engineer | Western India</h3><p>Expanded expertise in AHF/SVG and reactive compensation. Executed major commissioning for metro and industrial projects while providing dedicated customer support.</p></div>
+    <div class="time"><b>2022 – Aug</b><h3>Joined InPhase Power Technologies</h3><p>Began in Product Support and Application Engineering, building hands-on expertise in power-quality systems.</p></div>
   </div>
 </div></section>
 
 <section><div class="container">
-  <div class="kicker">Recognition</div><h2 class="section-title">Selected achievements</h2>
+  <div class="kicker">Recognition</div>
+  <h2 class="section-title"><i class="fa-solid fa-award icon-gradient"></i> Selected achievements</h2>
   <div class="grid">
-    <div class="card"><h3>Nagpur Metro Commissioning</h3><p>Led/managed commissioning activities for a multi-panel dynamic reactive power compensation system.</p></div>
-    <div class="card"><h3>Industrial Commissioning</h3><p>Hands-on commissioning exposure across steel, manufacturing, pharmaceutical, chemical, mining and infrastructure applications.</p></div>
-    <div class="card"><h3>Best Detailing Award</h3><p>Recognized with the Best Detailing Award in the August 2023 batch at Troikaa Pharmaceuticals.</p></div>
+    <div class="card"><h3>Multi-City Metro Commissioning :-</h3><p>Spearheaded the end-to-end field execution and site management for multi-panel dynamic reactive power compensation systems across India's premier metropolitan transit networks. Directed complex commissioning operations for the Navi Mumbai, Pune, Nagpur, and Mumbai Metro projects, successfully bringing over 22,000 Amps of total capacity online to guarantee robust power quality and grid stability under dynamic traction loads. </p></div>
+    <div class="card"><h3>Industrial Commissioning:-</h3><p>Directed end-to-end commissioning and systems integration for dynamic reactive power compensation solutions in high-demand industrial environments.
+
+Massive-Scale Deployment: Commissioned over 32,000 Amps of dynamic reactive power and harmonic mitigation capacity across heavy industries. This included steel manufacturing, pharmaceuticals, chemical processing, and mining.
+
+Complex System Integration: Led on-site execution and multi-disciplinary teams to synchronize advanced multi-panel architectures. Ensured flawless network coordination tailored to specific industrial demands.</p></div>
+    <div class="card"><h3>Best Detailing Award</h3><p>Recognized with the Best Detailing Award in the August 2024 batch at best zonal engineer.</p></div>
   </div>
 </div></section>
 
 <section id="contact"><div class="container">
   <div class="contact">
     <div class="contact-grid">
-      <div><div class="kicker">Let's connect</div><h2 class="section-title">Have a project or opportunity?</h2><p>For power-quality projects, commissioning support, technical discussions or professional opportunities, feel free to connect.</p></div>
       <div>
-        <p><strong>Email</strong><br><a href="mailto:shuvajitmaity1234@gmail.com">shuvajitmaity1234@gmail.com</a></p><br>
-        <p><strong>Phone</strong><br><a href="tel:+91 8436169586">+91 8436169586</a></p><br>
-        <p><strong>LinkedIn</strong><br><a href="#" onclick="return false;">Add your LinkedIn profile</a></p>
+        <div class="kicker">Let's Connect</div>
+        <h2 class="section-title"><i class="fa-solid fa-satellite-dish icon-gradient"></i> Open to Projects & Opportunities</h2>
+        <p>Whether you require commissioning support, power-quality solutions, or wish to discuss professional opportunities, I am always open to connecting.</p>
+      </div>
+      <div>
+        <div style="margin-bottom: 24px;">
+          <p><i class="fa-solid fa-envelope"></i> Email</p>
+          <a href="mailto:shuvajitmaity1234@gmail.com">shuvajitmaity1234@gmail.com</a>
+        </div>
+        <div style="margin-bottom: 24px;">
+          <p><i class="fa-solid fa-phone"></i> Phone</p>
+          <a href="tel:+918436169586">+91 8436169586</a>
+        </div>
+        <div>
+          <p><i class="fa-brands fa-linkedin"></i> LinkedIn</p>
+          <a href="https://www.linkedin.com/in/shuvajit-maity-050786219?utm_source=share_via&utm_content=profile&utm_medium=member_android">shuvajit Maity</a>
+        </div>
       </div>
     </div>
   </div>
 </div></section>
 </main>
 
-<footer><div class="container">© 2026 Shuvajit Maity · Power Quality & Electrical Engineering</div></footer>
+<footer><div class="container">© 2026 Shuvajit Maity · Power Quality & Electrical Engineer</div></footer>
 </body>
 </html>
