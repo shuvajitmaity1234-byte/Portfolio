@@ -115,6 +115,28 @@ section { padding: 120px 0; position: relative; }
 .tag { display: inline-block; padding: 8px 16px; margin: 6px 6px 0 0; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 100px; color: #e2e8f0; font-size: 13px; font-weight: 500; transition: all 0.3s ease; }
 .tag:hover { background: var(--gradient); border-color: transparent; color: #000; transform: scale(1.05); }
 
+/* Seamless Marquee Animation */
+.marquee-wrapper {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  position: relative;
+  padding-bottom: 10px;
+}
+.marquee-track {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee-scroll 25s linear infinite;
+}
+/* Pauses the scrolling when the user hovers over a tag */
+.marquee-wrapper:hover .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+  
 /* Advanced Project Cards */
 .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 24px; }
 .project {
@@ -251,16 +273,34 @@ footer { padding: 40px 0; text-align: center; color: var(--muted); border-top: 1
 <div class="kicker">Core Expertise</div>
   <h2 class="section-title"><i class="fa-solid fa-plug-circle-bolt icon-gradient"></i> Areas of Specialization</h2>
   <p class="section-sub">A robust blend of analytical engineering, electrical system design, and hands-on field execution.</p>
-  <div class="card">
-    <span class="tag"><i class="fa-solid fa-wave-square" style="margin-right: 5px;"></i> Power Quality Analysis</span>
-    <span class="tag"><i class="fa-solid fa-chart-line" style="margin-right: 5px;"></i> Harmonic Analysis</span>
-    <span class="tag"><i class="fa-solid fa-bolt" style="margin-right: 5px;"></i> Reactive Power Compensation</span>
-    <span class="tag">AHF / APF</span><span class="tag">SVG</span><span class="tag">Capacitor Banks</span>
-    <span class="tag">CT / PT Selection</span><span class="tag">Electrical SLDs</span><span class="tag">Panel Schematics</span>
-    <span class="tag"> Commissioning</span>
-    <span class="tag"><i class="fa-solid fa-wrench" style="margin-right: 5px;"></i> Troubleshooting</span>
-    <span class="tag">Root Cause Analysis</span>
-    <span class="tag">Customer Technical Support</span><span class="tag">Project Coordination</span><span class="tag">Team Deployment</span>
+  <div class="card" style="padding: 30px 0; overflow: hidden;">
+    
+    <div class="marquee-wrapper">
+      <div class="marquee-track">
+        <!-- FIRST SET OF TAGS -->
+        <span class="tag"><i class="fa-solid fa-wave-square" style="margin-right: 5px;"></i> Power Quality Analysis</span>
+        <span class="tag"><i class="fa-solid fa-chart-line" style="margin-right: 5px;"></i> Harmonic Analysis</span>
+        <span class="tag"><i class="fa-solid fa-bolt" style="margin-right: 5px;"></i> Reactive Power Compensation</span>
+        <span class="tag">AHF / APF</span><span class="tag">SVG</span><span class="tag">Capacitor Banks</span>
+        <span class="tag">CT / PT Selection</span><span class="tag">Electrical SLDs</span><span class="tag">Panel Schematics</span>
+        <span class="tag"> Commissioning</span>
+        <span class="tag"><i class="fa-solid fa-wrench" style="margin-right: 5px;"></i> Troubleshooting</span>
+        <span class="tag">Root Cause Analysis</span>
+        <span class="tag">Customer Technical Support</span><span class="tag">Project Coordination</span><span class="tag">Team Deployment</span>
+        
+        <!-- SECOND SET OF TAGS (Duplicate for the seamless loop illusion) -->
+        <span class="tag"><i class="fa-solid fa-wave-square" style="margin-right: 5px;"></i> Power Quality Analysis</span>
+        <span class="tag"><i class="fa-solid fa-chart-line" style="margin-right: 5px;"></i> Harmonic Analysis</span>
+        <span class="tag"><i class="fa-solid fa-bolt" style="margin-right: 5px;"></i> Reactive Power Compensation</span>
+        <span class="tag">AHF / APF</span><span class="tag">SVG</span><span class="tag">Capacitor Banks</span>
+        <span class="tag">CT / PT Selection</span><span class="tag">Electrical SLDs</span><span class="tag">Panel Schematics</span>
+        <span class="tag"> Commissioning</span>
+        <span class="tag"><i class="fa-solid fa-wrench" style="margin-right: 5px;"></i> Troubleshooting</span>
+        <span class="tag">Root Cause Analysis</span>
+        <span class="tag">Customer Technical Support</span><span class="tag">Project Coordination</span><span class="tag">Team Deployment</span>
+      </div>
+    </div>
+
   </div>
 </div></section>
 
