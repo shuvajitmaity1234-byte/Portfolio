@@ -64,16 +64,41 @@ nav {
   border-bottom: 1px solid var(--border);
 }
 .navin { height: 75px; display: flex; align-items: center; justify-content: space-between; }
+
+/* Navbar Logo & Profile Picture Styles */
+.nav-logo-wrap { display: flex; align-items: center; gap: 14px; }
+.nav-profile {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--primary);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.nav-profile:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(77, 212, 255, 0.4);
+}
 .logo { font-weight: 900; font-size: 20px; letter-spacing: 0.5px; }
 .logo span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .navlinks { display: flex; gap: 32px; color: var(--muted); font-size: 15px; font-weight: 500; }
 .navlinks a:hover { color: var(--text); transform: translateY(-2px); }
 
-/* Hero Section */
-.hero { min-height: 100vh; display: grid; grid-template-columns: 1.2fr 0.8fr; align-items: center; gap: 60px; padding-top: 100px; position: relative; }
+/* Hero Section Layout */
+.hero { 
+  min-height: 100vh; 
+  display: grid; 
+  grid-template-columns: 1.2fr 0.8fr; 
+  align-items: center; 
+  gap: 60px; 
+  padding-top: 100px; 
+  position: relative; 
+}
+.hero-text-content { z-index: 2; text-align: left; }
 .hero::after { content: ""; position: absolute; width: 600px; height: 600px; border-radius: 50%; right: -200px; top: 10%; background: radial-gradient(circle, rgba(77,212,255,0.1), transparent 60%); z-index: -1; filter: blur(50px); }
 .kicker { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; font-size: 13px; margin-bottom: 15px; display: inline-block; }
-h1 { font-size: clamp(48px, 7vw, 84px); font-weight: 900; line-height: 1.05; margin: 0 0 24px; letter-spacing: -1px; }
+h1 { font-size: clamp(48px, 7vw, 84px); font-weight: 900; line-height: 1.05; letter-spacing: -1px; margin-bottom: 24px; }
 h1 span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .hero p { color: #cbd5e1; font-size: 24px; max-width: 600px; font-weight: 300; }
 .buttons { display: flex; gap: 16px; margin-top: 36px; }
@@ -84,10 +109,46 @@ h1 span { background: var(--gradient); -webkit-background-clip: text; -webkit-te
 .btn.primary:hover { box-shadow: 0 15px 30px rgba(77, 212, 255, 0.4); transform: translateY(-3px); }
 .btn:not(.primary):hover { border-color: var(--primary); background: rgba(77, 212, 255, 0.05); transform: translateY(-3px); color: var(--primary); }
 
-/* Image Card Glow Effect */
-.photo-wrap { position: relative; perspective: 1000px; }
-.photo-card { width: 100%; max-width: 420px; padding: 12px; border: 1px solid var(--border); border-radius: 32px; background: var(--surface); backdrop-filter: blur(20px); transform: rotateY(-5deg) rotateX(5deg); transition: transform 0.6s ease; box-shadow: 0 30px 60px rgba(0,0,0,0.6); }
-.photo-wrap:hover .photo-card { transform: rotateY(0) rotateX(0); }
+/* PROFESSIONAL STRICT-SEQUENCE ANIMATION */
+.photo-wrap {
+  position: relative;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none; /* Prevents interaction when invisible */
+  
+  /* Deep vertical drop so it slides in noticeably, but elegantly */
+  transform: translateY(80px) scale(0.95);
+  
+  /* Slowed down to 0.8s to give a majestic, deliberate reveal */
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0.8s;
+  z-index: 10;
+}
+
+.photo-wrap.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  
+  /* Glides to its natural resting position */
+  transform: translateY(0) scale(1);
+}
+
+.photo-card { 
+  width: 100%; 
+  max-width: 420px; 
+  padding: 12px; 
+  border: 1px solid var(--border); 
+  border-radius: 32px; 
+  background: var(--surface); 
+  backdrop-filter: blur(20px); 
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4); 
+  transition: box-shadow 0.4s ease, border-color 0.4s ease;
+  cursor: default; 
+}
+.photo-card:hover { 
+  box-shadow: 0 30px 60px rgba(77, 212, 255, 0.15); 
+  border-color: rgba(77, 212, 255, 0.3);
+}
 .photo-card img { width: 100%; display: block; border-radius: 20px; }
 
 /* Section & Stats Styling */
@@ -116,47 +177,15 @@ section { padding: 120px 0; position: relative; }
 .tag:hover { background: var(--gradient); border-color: transparent; color: #000; transform: scale(1.05); }
 
 /* Seamless Marquee Animation */
-.marquee-wrapper {
-  overflow: hidden;
-  white-space: nowrap;
-  width: 100%;
-  position: relative;
-  padding-bottom: 10px;
-}
-.marquee-track {
-  display: inline-block;
-  white-space: nowrap;
-  animation: marquee-scroll 25s linear infinite;
-}
-/* Pauses the scrolling when the user hovers over a tag */
-.marquee-wrapper:hover .marquee-track {
-  animation-play-state: paused;
-}
-@keyframes marquee-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
+.marquee-wrapper { overflow: hidden; white-space: nowrap; width: 100%; position: relative; padding-bottom: 10px; }
+.marquee-track { display: inline-block; white-space: nowrap; animation: marquee-scroll 25s linear infinite; }
+.marquee-wrapper:hover .marquee-track { animation-play-state: paused; }
+@keyframes marquee-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
   
 /* Advanced Project Cards */
 .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 24px; }
-.project {
-  border: 1px solid var(--border);
-  border-radius: 28px;
-  padding: 40px;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  overflow: hidden;
-  min-height: 380px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-.project::before {
-  content: ""; position: absolute; inset: 0; background: inherit; z-index: -1;
-  transition: transform 0.7s ease;
-}
+.project { border: 1px solid var(--border); border-radius: 28px; padding: 40px; background-size: cover; background-position: center; position: relative; overflow: hidden; min-height: 380px; display: flex; flex-direction: column; justify-content: flex-end; transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1); }
+.project::before { content: ""; position: absolute; inset: 0; background: inherit; z-index: -1; transition: transform 0.7s ease; }
 .project:hover::before { transform: scale(1.08); }
 .project:hover { transform: translateY(-8px); border-color: var(--border-hover); box-shadow: 0 30px 60px rgba(0,0,0,0.6); }
 .project .num { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; font-size: 13px; letter-spacing: 2px; margin-bottom: 10px; display: inline-block; }
@@ -166,27 +195,8 @@ section { padding: 120px 0; position: relative; }
 .project li { margin-bottom: 6px; }
 
 /* Read More Button CSS */
-.read-more-btn {
-  display: inline-block;
-  padding: 8px 18px;
-  border: 1px solid rgba(77, 212, 255, 0.4);
-  border-radius: 8px;
-  color: var(--primary);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
-  align-self: flex-start;
-  backdrop-filter: blur(5px);
-  background: rgba(3, 7, 18, 0.4);
-}
-.read-more-btn:hover {
-  background: var(--primary);
-  color: #000;
-  border-color: var(--primary);
-  transform: translateX(4px);
-}
+.read-more-btn { display: inline-block; padding: 8px 18px; border: 1px solid rgba(77, 212, 255, 0.4); border-radius: 8px; color: var(--primary); font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s ease; align-self: flex-start; backdrop-filter: blur(5px); background: rgba(3, 7, 18, 0.4); }
+.read-more-btn:hover { background: var(--primary); color: #000; border-color: var(--primary); transform: translateX(4px); }
 
 /* Timeline Journey */
 .timeline { border-left: 2px solid var(--border); padding-left: 40px; margin-left: 10px; }
@@ -208,11 +218,31 @@ section { padding: 120px 0; position: relative; }
 footer { padding: 40px 0; text-align: center; color: var(--muted); border-top: 1px solid var(--border); font-size: 14px; font-weight: 300; }
 
 @media(max-width: 900px){
-  .hero { grid-template-columns: 1fr; text-align: center; padding-top: 130px; }
+  /* Re-align hero text on mobile */
+  .hero { 
+    grid-template-columns: 1fr; 
+    text-align: center; 
+    padding-top: 130px; 
+    justify-items: center;
+  }
+  .hero-text-content { text-align: center; }
   .hero p { margin: 0 auto; }
   .buttons { justify-content: center; }
-  .photo-wrap { order: -1; }
-  .photo-card { transform: none; margin: 0 auto; }
+  
+  /* On mobile, pop the image out of the document flow so it doesn't create empty gaps */
+  .photo-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -20%) scale(0.9); /* Dropped down starting point */
+    width: 90%;
+    max-width: 400px;
+    margin: 0;
+  }
+  .photo-wrap.active {
+    transform: translate(-50%, -50%) scale(1); /* Centered active state */
+  }
+  
   .projects { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
   .navlinks { display: none; }
@@ -220,8 +250,15 @@ footer { padding: 40px 0; text-align: center; color: var(--muted); border-top: 1
 </style>
 </head>
 <body>
+
 <nav><div class="container navin">
-  <a class="logo" href="#home">Mr. SHUVAJIT Maity<span>.</span></a>
+  
+  <!-- Navigation Logo Block with JS ID -->
+  <div class="nav-logo-wrap">
+    <img src="profile.jpg" alt="Shuvajit Maity Profile Logo" class="nav-profile" id="nav-logo-btn" title="Click to view full photo">
+    <a class="logo" href="#home">Mr. SHUVAJIT Maity<span>.</span></a>
+  </div>
+
   <div class="navlinks">
     <a href="#about">About</a><a href="#expertise">Expertise</a><a href="#projects">Projects</a>
     <a href="#journey">Journey</a><a href="#contact">Contact</a>
@@ -230,16 +267,28 @@ footer { padding: 40px 0; text-align: center; color: var(--muted); border-top: 1
 
 <main id="home">
 <section class="hero container">
-  <div>
+  
+  <!-- Left Side: Hero Text -->
+  <div class="hero-text-content">
     <div class="kicker"><i class="fa-solid fa-bolt icon-gradient" style="margin-right: 8px;"></i> Power Quality • Electrical Systems</div>
+    
     <h1>Shuvajit<br><span>Maity</span></h1>
+    
     <p><strong>Central India Regional Head</strong> specializing in power quality, harmonic mitigation, and dynamic reactive power compensation. Proven expertise in end-to-end commissioning, system troubleshooting, and cross-functional project coordination.</p>
+    
     <div class="buttons">
       <a class="btn primary" href="#projects">View Projects <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i></a>
       <a class="btn" href="#contact">Contact Me</a>
     </div>
   </div>
-  <div class="photo-wrap"><div class="photo-card"><img src="profile.jpg" alt="Shuvajit Maity professional portrait"></div></div>
+
+  <!-- Right Side: Vacant space initially, Photo appears here on click -->
+  <div class="photo-wrap" id="main-photo">
+    <div class="photo-card">
+      <img src="profile.jpg" alt="Shuvajit Maity professional portrait">
+    </div>
+  </div>
+
 </section>
 
 <div class="container stats">
@@ -316,7 +365,6 @@ footer { padding: 40px 0; text-align: center; color: var(--muted); border-top: 1
         <p> As Project coordinator & Commissioning Engineer:- </p> 
         <ul>
           <li>Project Leadership: Led field commissioning of a 6.7 MVAR (9.5 kA) SVG system across multiple 132 kV RSS and 33 kV TSS sites for Nagpur Metro.</li>
-          <!-- <li>System Integration: Established reliable master/slave network coordination and resolved critical power quality issues under dynamic traction loads.</li> -->
           <li>Performance: Improved and consistently maintained the overall system Power Factor within the desired operating range.</li>
         </ul>
         <a href="project-nagpur.html" class="read-more-btn">Read More <i class="fa-solid fa-arrow-right" style="margin-left:5px;"></i></a>
@@ -384,9 +432,9 @@ footer { padding: 40px 0; text-align: center; color: var(--muted); border-top: 1
         </ul>
         <a href="project-mahindra.html" class="read-more-btn">Read More <i class="fa-solid fa-arrow-right" style="margin-left:5px;"></i></a>
       </div>
-
     </article>
-        <article class="project" style="background-image: linear-gradient(to top, rgba(3, 7, 18, 0.95) 0%, rgba(3, 7, 18, 0.2) 100%), url('amnsp.jpg');">
+    
+    <article class="project" style="background-image: linear-gradient(to top, rgba(3, 7, 18, 0.95) 0%, rgba(3, 7, 18, 0.2) 100%), url('amnsp.jpg');">
       <div>
         <div class="num">others Projects</div><h3>others</h3>
         <p>Large industrial compensation system project coordination.</p>
@@ -420,9 +468,7 @@ footer { padding: 40px 0; text-align: center; color: var(--muted); border-top: 1
   <div class="grid">
     <div class="card"><h3>Multi-City Metro Commissioning :-</h3><p>Spearheaded the end-to-end field execution and site management for multi-panel dynamic reactive power compensation systems across India's premier metropolitan transit networks. Directed complex commissioning operations for the Navi Mumbai, Pune, Nagpur, and Mumbai Metro projects, successfully bringing over 22,000 Amps of total capacity online to guarantee robust power quality and grid stability under dynamic traction loads. </p></div>
     <div class="card"><h3>Industrial Commissioning:-</h3><p>Directed end-to-end commissioning and systems integration for dynamic reactive power compensation solutions in high-demand industrial environments.
-
 Massive-Scale Deployment: Commissioned over 32,000 Amps of dynamic reactive power and harmonic mitigation capacity across heavy industries. This included steel manufacturing, pharmaceuticals, chemical processing, and mining.
-
 Complex System Integration: Led on-site execution and multi-disciplinary teams to synchronize advanced multi-panel architectures. Ensured flawless network coordination tailored to specific industrial demands.</p></div>
     <div class="card"><h3>Best Detailing Award</h3><p>Recognized with the Best Detailing Award in the August 2024 batch at best zonal engineer.</p></div>
   </div>
@@ -456,5 +502,69 @@ Complex System Integration: Led on-site execution and multi-disciplinary teams t
 </main>
 
 <footer><div class="container">© 2026 Shuvajit Maity · Power Quality & Electrical Engineer</div></footer>
+
+<!-- Professional Sequenced Animations & Tracking -->
+<script>
+  const navLogoBtn = document.getElementById('nav-logo-btn');
+  const mainPhoto = document.getElementById('main-photo');
+  
+  let savedScrollPosition = 0;
+  let isPhotoVisible = false;
+  let animationTimer;
+  let scrollCheckInterval;
+
+  // 1. User clicks the logo in the navbar
+  navLogoBtn.addEventListener('click', function(e) {
+    e.stopPropagation(); // Prevents click from accidentally triggering the document listener
+    
+    if (!isPhotoVisible) {
+      // Save where the user is currently reading
+      savedScrollPosition = window.scrollY;
+      
+      // Scroll smoothly to the top of the page
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      
+      // Strict Sequence Check: Only reveal the photo AFTER reaching the top
+      clearInterval(scrollCheckInterval);
+      let attempts = 0;
+      
+      scrollCheckInterval = setInterval(() => {
+        // Condition: If scroll position is at/near 0, OR fallback kicks in after 1.5 seconds
+        if (window.scrollY <= 10 || attempts > 30) {
+          clearInterval(scrollCheckInterval); // Stop tracking
+          
+          // Fire the visual CSS entrance effect
+          mainPhoto.classList.add('active');
+          isPhotoVisible = true;
+        }
+        attempts++;
+      }, 50); // Checks every 50 milliseconds
+      
+    } else {
+      closePhotoAndReturn();
+    }
+  });
+
+  // 2. User clicks anywhere else on the screen to dismiss
+  document.addEventListener('click', function(e) {
+    if (isPhotoVisible && !mainPhoto.contains(e.target)) {
+      closePhotoAndReturn();
+    }
+  });
+
+  // 3. Strict Sequence: Fade out first, wait, then scroll down
+  function closePhotoAndReturn() {
+    // Hide the photo to trigger the CSS fade-out transition
+    mainPhoto.classList.remove('active');
+    isPhotoVisible = false;
+    
+    // Wait exactly 800ms (matching the CSS transition duration) before scrolling down
+    clearTimeout(animationTimer);
+    animationTimer = setTimeout(() => {
+      window.scrollTo({ top: savedScrollPosition, behavior: 'smooth' });
+    }, 800); 
+  }
+</script>
+
 </body>
 </html>
