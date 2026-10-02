@@ -151,9 +151,9 @@ h1 span { background: var(--gradient); -webkit-background-clip: text; -webkit-te
 }
 .photo-card img { width: 100%; display: block; border-radius: 20px; }
 
-/* Section & Stats Styling */
-section { padding: 120px 0; position: relative; }
-.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin: -40px auto 80px; position: relative; z-index: 5; }
+/* Tightened Section & Stats Styling */
+section { padding: 70px 0; position: relative; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin: -20px auto 60px; position: relative; z-index: 5; }
 .stat { background: var(--surface); backdrop-filter: blur(16px); border: 1px solid var(--border); padding: 32px 24px; border-radius: 24px; text-align: center; transition: all 0.4s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
 .stat:hover { transform: translateY(-8px); border-color: var(--border-hover); background: var(--surface-hover); }
 .stat i { font-size: 32px; margin-bottom: 12px; }
@@ -161,9 +161,9 @@ section { padding: 120px 0; position: relative; }
 .stat small { color: var(--muted); font-weight: 500; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
 
 /* Global Section Typography (SCALED UP & WHITE) */
-.section-title { font-size: 42px; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.5px; color: #ffffff; }
+.section-title { font-size: 42px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.5px; color: #ffffff; }
 .section-title i { margin-right: 14px; font-size: 0.8em; }
-.section-sub { color: #ffffff; max-width: 800px; margin-bottom: 48px; font-size: 22px; font-weight: 300; }
+.section-sub { color: #ffffff; max-width: 800px; margin-bottom: 36px; font-size: 22px; font-weight: 300; }
 
 /* Glass Cards (About / Features) (SCALED UP & WHITE) */
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
@@ -172,9 +172,21 @@ section { padding: 120px 0; position: relative; }
 .card h3 { font-size: 26px; font-weight: 700; margin-bottom: 12px; color: #ffffff; }
 .card p { color: #ffffff; font-weight: 300; font-size: 20px; }
 
-/* Expertise Tags */
-.tag { display: inline-block; padding: 8px 16px; margin: 6px 6px 0 0; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 100px; color: #ffffff; font-size: 14px; font-weight: 500; transition: all 0.3s ease; }
-.tag:hover { background: var(--gradient); border-color: transparent; color: #000; transform: scale(1.05); }
+/* SWAPPED Expertise Tags (Gradient Default, Dark Hover) */
+.tag { 
+  display: inline-block; padding: 8px 16px; margin: 6px 6px 0 0; 
+  background: var(--gradient); 
+  border: 1px solid transparent; 
+  border-radius: 100px; 
+  color: #000; 
+  font-size: 14px; font-weight: 500; transition: all 0.3s ease; 
+}
+.tag:hover { 
+  background: rgba(255,255,255,0.03); 
+  border-color: var(--border); 
+  color: #ffffff; 
+  transform: scale(1.05); 
+}
 
 /* Seamless Marquee Animation */
 .marquee-wrapper { overflow: hidden; white-space: nowrap; width: 100%; position: relative; padding-bottom: 10px; }
@@ -215,7 +227,7 @@ section { padding: 120px 0; position: relative; }
 .contact a { color: var(--primary); font-weight: 700; font-size: 22px; transition: all 0.3s ease; display: inline-block; cursor: pointer; }
 .contact a:hover { color: #ffffff; transform: translateX(8px); }
 
-footer { padding: 40px 0; text-align: center; color: var(--muted); border-top: 1px solid var(--border); font-size: 14px; font-weight: 300; }
+footer { padding: 40px 0; text-align: center; color: var(--muted); border-top: 1px solid var(--border); font-size: 14px; font-weight: 300; margin-top: 20px; }
 
 @media(max-width: 900px){
   /* Re-align hero text on mobile */
